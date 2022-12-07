@@ -8,5 +8,5 @@ console.log(x, y, others);
 
 let one , two;
 
-[one, two] = [1,2]
-console.log(one, two)
+[one, two, three = 3] = [1,2]
+console.log(one, two, three)
