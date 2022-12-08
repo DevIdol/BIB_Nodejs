@@ -1,0 +1,21 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "yarn",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevIdol/BIB-Nodejs-.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/DevIdol/BIB-Nodejs-/issues"
+  },
+  "homepage": "https://github.com/DevIdol/BIB-Nodejs-#readme",
+  "description": ""
+}
