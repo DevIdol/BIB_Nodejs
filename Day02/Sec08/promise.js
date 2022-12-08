@@ -2,6 +2,7 @@ let success = true;
 
 const getUsers = () => {
   return new Promise((resolve, reject) => {
+   setTimeout(() => {
     if (success) {
       resolve([
         { username: "Joe", email: "joe@gmail.com", gender: "Male" },
@@ -10,6 +11,7 @@ const getUsers = () => {
     } else {
       reject("Something Wrong!");
     }
+   }, 1000)
   });
 };
 
