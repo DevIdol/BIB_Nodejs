@@ -6,7 +6,7 @@ const num1 = new Promise((resolve, reject) => {
 
 const num2 = new Promise((resolve, reject) => {
   console.log("The second Promise is resolved.")
-  setTimeout(() => resolve(20))
+  setTimeout(() => resolve(20), 1000)
 })
 
 Promise.all([num1, num2]).then(results => {
