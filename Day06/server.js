@@ -11,14 +11,15 @@ app.get('/get-users', (req, res) => {
 })
 
 app.post('/post-users', (req, res) => {
+  const newUser = req.body;
   fs.readFile('user.json', (err, data) => {
     err && console.log(err)
     var user = JSON.parse(data)
-    user.push(req.body)
-    res.send(req.body)
-    fs.writeFile("user.json", JSON.stringify(user), (err, data) => {
+    user.push(newUser)
+    res.send(newUser)
+    fs.writeFile("user.json", JSON.stringify(user), err => {
       err && console.log(err)
-      console.log("Updated User")
+      console.log("User Updated Successfully!")
     })
   })
 })
