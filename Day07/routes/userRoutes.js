@@ -1,33 +1,14 @@
 const express = require('express')
-const fs = require("fs")
-const { v4: uuidv4 } = require('uuid');
-const users = require('../user.json')
+const { getAllUsers, createUser, getUser } = require("../controller/userController")
 const router = express.Router();
 
-const data = {
-  users,
-  setUser: function (data) { this.users = data }
-}
 
-router.get("/", (req, res) => {
-  res.send(data.users)
-})
 
-router.post("/", (req, res) => {
-  const newUser = { ...req.body, id: uuidv4() };
-  res.send(newUser)
-  data.setUser([...data.users, newUser])
-  fs.writeFile('user.json', JSON.stringify(data.users), err => {
-    err && console.log(err);
-    console.log("New User Added")
-  })
-})
+router.get("/", getAllUsers)
 
-router.get("/:id", (req, res) => {
-  const { id } = req.params;
-  const user = data.users.find(user => user.id == id);
-  res.send(user)
-})
+router.post("/", createUser)
+
+router.get("/:id", getUser)
 
 
 module.exports = router;
