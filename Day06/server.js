@@ -1,27 +1,29 @@
 const express = require("express");
 const fs = require("fs");
 var bodyParser = require('body-parser');
-const users = require("./user.json")
 const app = express();
 const PORT = 8080;
 app.use(bodyParser.json())
 
-const data = {
-  users,
-  setUser: function (data) { this.users = data }
-}
 app.get('/users', (req, res) => {
-  res.send(data.users)
+    fs.readFile('user.json', (err, data) => {
+        res.send(JSON.parse(data))
+    })
 })
 
 app.post('/users', (req, res) => {
-  const newUser = req.body;
-  res.send(newUser)
-  data.setUser([...data.users, newUser])
-  fs.writeFile(`user.json`, JSON.stringify(data.users), err => {
-    err && console.log(err)
-    console.log("New User Added")
-  })
+    const newUser = req.body;
+    fs.readFile('user.json', (err, data) => {
+        err && console.log(err)
+        var user = JSON.parse(data)
+        user.push(newUser)
+        res.send(newUser)
+        fs.writeFile("user.json", JSON.stringify(user), err => {
+            err && console.log(err)
+            console.log("New User Created!")
+        })
+    })
+
 })
 
 app.listen(PORT, () => console.log(`My server in running on ${PORT}`))

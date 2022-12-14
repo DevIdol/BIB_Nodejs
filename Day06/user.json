@@ -39,5 +39,11 @@
     "password": "password123",
     "profession": "full-stack",
     "id": 11
+  },
+  {
+    "name": "Joe",
+    "password": "password123",
+    "profession": "mern-stack",
+    "id": 12
   }
 ]
