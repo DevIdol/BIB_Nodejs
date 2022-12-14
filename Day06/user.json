@@ -35,15 +35,9 @@
     "id": 10
   },
   {
-    "name": "Joe",
-    "password": "password12",
-    "profession": "mern-stack",
-    "id": 11
-  },
-  {
     "name": "Joseph",
     "password": "password123",
     "profession": "full-stack",
-    "id": 12
+    "id": 11
   }
 ]

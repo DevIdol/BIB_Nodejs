@@ -1,26 +1,26 @@
 const express = require("express");
 const fs = require("fs");
 var bodyParser = require('body-parser');
+const users = require("./user.json")
 const app = express();
 const PORT = 8080;
 app.use(bodyParser.json())
-app.get('/get-users', (req, res) => {
-  fs.readFile('user.json', (err, data) => {
-    res.send(JSON.parse(data))
-  })
+
+const data = {
+  users,
+  setUser: function (data) { this.users = data }
+}
+app.get('/users', (req, res) => {
+  res.send(data.users)
 })
 
-app.post('/post-users', (req, res) => {
+app.post('/users', (req, res) => {
   const newUser = req.body;
-  fs.readFile('user.json', (err, data) => {
+  res.send(newUser)
+  data.setUser([...data.users, newUser])
+  fs.writeFile(`user.json`, JSON.stringify(data.users), err => {
     err && console.log(err)
-    var user = JSON.parse(data)
-    user.push(newUser)
-    res.send(newUser)
-    fs.writeFile("user.json", JSON.stringify(user), err => {
-      err && console.log(err)
-      console.log("User Updated Successfully!")
-    })
+    console.log("New User Added")
   })
 })
 
