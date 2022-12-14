@@ -14,13 +14,19 @@ router.get("/", (req, res) => {
 })
 
 router.post("/", (req, res) => {
-  const newUser = {...req.body, id: uuidv4()};
+  const newUser = { ...req.body, id: uuidv4() };
   res.send(newUser)
   data.setUser([...data.users, newUser])
   fs.writeFile('user.json', JSON.stringify(data.users), err => {
     err && console.log(err);
     console.log("New User Added")
   })
+})
+
+router.get("/:id", (req, res) => {
+  const { id } = req.params;
+  const user = data.users.find(user => user.id == id);
+  res.send(user)
 })
 
 
