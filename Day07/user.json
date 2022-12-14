@@ -3,6 +3,12 @@
     "name": "Joe",
     "email": "admin@gmail.com",
     "password": "123456",
-    "id": 1
+    "id": "f83db8fb-a2a7-40e6-98ec-237f1f486faa"
+  },
+  {
+    "name": "Joseph",
+    "email": "user@gmail.com",
+    "password": "123456",
+    "id": "d6284cd8-9569-4e11-8ab5-269f36aac05b"
   }
 ]
