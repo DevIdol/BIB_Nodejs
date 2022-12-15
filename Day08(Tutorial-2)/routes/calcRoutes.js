@@ -13,6 +13,9 @@ router.get("/subtract/:num1/:num2", (req, res) => {
   res.json({ Subtract: `num1 - num2=> ${sub}` })
 })
 
-
+router.get("/multiply/:num1/:num2", (req, res) => {
+  const mult = parseInt(req.params.num1) / parseInt(req.params.num2)
+  res.json({ Multiply: `num1 / num2=> ${mult}` })
+})
 
 module.exports = router;
