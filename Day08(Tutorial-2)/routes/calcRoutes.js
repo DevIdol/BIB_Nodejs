@@ -1,12 +1,14 @@
 const express = require("express");
 const router = express.Router();
 
+// Sum
 router.get("/sum/:num1/:num2", (req, res) => {
     const num1 = +req.params.num1;
     const num2 = +req.params.num2;
     res.json({ message: `Sum of ${num1} + ${num2}`, value: `${num1 + num2}` });
 });
 
+//Subtract
 router.get("/subtract/:num1/:num2", (req, res) => {
     const num1 = +req.params.num1;
     const num2 = +req.params.num2;
@@ -16,6 +18,7 @@ router.get("/subtract/:num1/:num2", (req, res) => {
     });
 });
 
+//Multiply
 router.get("/multiply/:num1/:num2", (req, res) => {
     const num1 = +req.params.num1;
     const num2 = +req.params.num2;
@@ -25,6 +28,7 @@ router.get("/multiply/:num1/:num2", (req, res) => {
     });
 });
 
+//Divide
 router.get("/divide/:num1/:num2", (req, res) => {
     const num1 = +req.params.num1;
     const num2 = +req.params.num2;
@@ -34,6 +38,7 @@ router.get("/divide/:num1/:num2", (req, res) => {
     });
 });
 
+//Modulo
 router.get("/modulo/:num1/:num2", (req, res) => {
     const num1 = +req.params.num1;
     const num2 = +req.params.num2;
@@ -43,6 +48,7 @@ router.get("/modulo/:num1/:num2", (req, res) => {
     });
 });
 
+//Area of Cicle
 router.get("/area-of-cicle/:radius", (req, res) => {
     const PI = Math.PI;
     const radius = +req.params.radius;
@@ -52,6 +58,8 @@ router.get("/area-of-cicle/:radius", (req, res) => {
     });
 });
 
+
+//Feet Inches to CM Converter
 router.get("/feet-inch-to-cm/:feet/:inch", (req, res) => {
     const feet = +req.params.feet;
     const inch = +req.params.inch;
