@@ -5,7 +5,10 @@ const router = express.Router();
 router.get("/sum/:num1/:num2", (req, res) => {
     const num1 = +req.params.num1;
     const num2 = +req.params.num2;
-    res.json({ message: `Sum of ${num1} + ${num2}`, value: `${num1 + num2}` });
+    res.json({
+        message: `Sum of ${num1} + ${num2}`,
+        value: `${num1 + num2}`
+    });
 });
 
 //Subtract
