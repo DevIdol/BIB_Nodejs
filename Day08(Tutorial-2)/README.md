@@ -26,7 +26,8 @@ localhost:5000/api/feet-inch-to-cm/feet/inch
 - **Installation**
 ```
 git clone git@github.com:DevIdol/BIB_Nodejs.git
-cd Day08(Tutorial-2)
+cd BIB_Nodejs
+cd "Day08(Tutorial-2)"
 yarn
 yarn dev
 
