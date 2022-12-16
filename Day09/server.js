@@ -1,11 +1,14 @@
 const express = require("express");
 const app = express();
 
-
 const PORT = 5000;
 
+app.set('view engine', 'pug')
+app.set('views', './views')
+
+
 app.get("/", (req, res) => {
-  res.send("Hello World");
+  res.render("index")
 })
 
 
