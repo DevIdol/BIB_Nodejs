@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-// Sum
+//Sum
 router.get("/sum/:num1/:num2", (req, res) => {
     const num1 = +req.params.num1;
     const num2 = +req.params.num2;
