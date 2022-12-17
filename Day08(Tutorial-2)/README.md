@@ -4,17 +4,17 @@
 ```
 localhost:5000/api/sum/num1/num2
 
-localhost:5000/api/subtract/num1/num2
+localhost:5000/api/sub/num1/num2
 
-localhost:5000/api/multiply/num1/num2
+localhost:5000/api/mul/num1/num2
 
-localhost:5000/api/divide/num1/num2
+localhost:5000/api/div/num1/num2
 
-localhost:5000/api/modulo/num1/num2
+localhost:5000/api/mod/num1/num2
 
-localhost:5000/api/area-of-cicle/radius
+localhost:5000/api/cicle/radius
 
-localhost:5000/api/feet-inch-to-cm/feet/inch
+localhost:5000/api/conversion/feet/inch
 
 ```
 
