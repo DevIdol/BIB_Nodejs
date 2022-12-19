@@ -16,6 +16,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 //db
 mongoose.set("strictQuery", false);
 mongoose.connect(process.env.MONGO_DB || "").then(() => {
-   console.log(`MongoDB Connected!`)
-   app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
+    console.log(`MongoDB Connected!`)
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
 }).catch(() => console.log(`MongoDB couldn't connect!`))
