@@ -2,7 +2,7 @@ import express from "express"
 import dotenv from "dotenv"
 import mongoose from "mongoose";
 import bodyParser from "body-parser"
-import bookRouter from "./routes/book.route";
+import bookRouter from "./routes/book.route.js";
 
 
 dotenv.config();
