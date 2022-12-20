@@ -2,7 +2,7 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import dotenv from 'dotenv'
 import { connectDB } from './db.js'
-import mongoose from 'mongoose'
+import movieRouter from './routes/movie.route.js'
 
 dotenv.config()
 const app = express()
@@ -17,6 +17,9 @@ connectDB();
 
 //default route
 app.get('/', (req, res) => res.json({ message: "Default Route is OK" }));
+
+//route api
+app.use('/api/v1/movies', movieRouter)
 
 
 

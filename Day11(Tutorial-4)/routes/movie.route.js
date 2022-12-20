@@ -6,3 +6,5 @@ const router = express.Router();
 
 //get movies
 router.get('/', getMovies)
+
+export default router;
