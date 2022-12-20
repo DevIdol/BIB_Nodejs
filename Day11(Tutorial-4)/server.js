@@ -18,7 +18,7 @@ app.use(multer().array())
 connectDB();
 
 //default route
-app.get('/', (req, res) => res.json({ message: "Default Route is OK" }));
+app.get('/', (req, res) => res.status(200).json({ message: "Default Route is OK" }));
 
 //route api
 app.use('/api/v1/movies', movieRouter)
