@@ -1,5 +1,5 @@
 import express from "express"
-import { createMovie, getMovies, updateMovie } from "../controllers/movie.controller.js";
+import { createMovie, getMovie, getMovies, updateMovie } from "../controllers/movie.controller.js";
 
 const router = express.Router();
 
@@ -7,9 +7,12 @@ const router = express.Router();
 router.post('/', createMovie)
 
 //update movie
-router.post('/:id', updateMovie)
+router.put('/:id', updateMovie)
 
 //get movies
 router.get('/', getMovies)
+
+//get movie
+router.get('/:id', getMovie)
 
 export default router;
