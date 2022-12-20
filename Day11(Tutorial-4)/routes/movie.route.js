@@ -7,7 +7,7 @@ const router = express.Router();
 router.post('/', createMovie)
 
 //update movie
-router.put('/:id', updateMovie)
+router.put('/update/:id', updateMovie)
 
 //get movies
 router.get('/', getMovies)
