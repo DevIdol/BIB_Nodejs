@@ -15,5 +15,9 @@ app.use(bodyParser.urlencoded({ extended: true }))
 //db
 connectDB();
 
+//default route
+app.get('/', (req, res) => res.json({ message: "Default Route is OK" }));
 
-app.listen(PORT, () => console.log(`Server running on port${PORT}`))
+
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
