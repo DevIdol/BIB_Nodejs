@@ -23,6 +23,4 @@ app.get('/', (req, res) => res.json({ message: "Default Route is OK" }));
 //route api
 app.use('/api/v1/movies', movieRouter)
 
-
-
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
