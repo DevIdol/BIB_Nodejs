@@ -4,7 +4,7 @@
 ```
 localhost:8000/api/v1/movies
 
-localhost:8000/api/v1/movies/update/id
+localhost:8000/api/v1/movies/id
 
 localhost:8000/api/v1/movies/id
 
