@@ -11,7 +11,6 @@ const userRouter = require('./routes/user.route')
 
 dotenv.config();
 const app = express();
-
 const PORT = process.env.PORT || 8080;
 
 //db
@@ -44,6 +43,7 @@ app.get('/', (req, res) => {
     res.render('index')
 })
 
+//route api
 app.use(userRouter)
 
 
