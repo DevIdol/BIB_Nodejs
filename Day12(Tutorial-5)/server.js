@@ -40,8 +40,7 @@ app.set('views', './views')
 //default route
 app.get('/', (req, res) => {
     const user = req.session.isAuth
-    user && res.redirect('/dashboard')
-    !user && res.render('index')
+    res.render('index', {user})
 })
 
 //route api

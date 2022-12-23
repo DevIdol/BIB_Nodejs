@@ -3,5 +3,9 @@ html
     title Home
   body
   h2 Welcome!
-a(href="/login" style={'padding-right': '20px', 'font-size': '18px'}) Login
-a(href="register") Register
+    div(style={"display": 'block', "padding-bottom": "10px"})
+    if(!user)
+      a(href="/login" style={'padding-right': '20px', 'font-size': '18px'}) Login
+      a(href="/register" style={'padding-right': '20px', 'font-size': '18px'}) Register
+    if(user)  
+      a(href="/dashboard") Dashboard
