@@ -7,6 +7,7 @@ const multer = require('multer')
 const dotenv = require('dotenv')
 const ConnectDB = require('./db')
 const userRouter = require('./routes/user.route')
+const isAuth = require('./middleware/auth')
 
 
 dotenv.config();
@@ -38,9 +39,9 @@ app.set('views', './views')
 
 //default route
 app.get('/', (req, res) => {
-    req.session.isAuth = true
-    console.log(req.session)
-    res.render('index')
+    const user = req.session.isAuth
+    user && res.redirect('/dashboard')
+    !user && res.render('index')
 })
 
 //route api

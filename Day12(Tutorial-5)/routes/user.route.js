@@ -6,13 +6,17 @@ const router = express.Router()
 
 //login
 router.get('/login', (req, res) => {
-    res.render('login')
+    const user = req.session.isAuth
+    user && res.redirect('/dashboard')
+    !user && res.render('login')
 })
 router.post('/login', login)
 
 //register
 router.get('/register', (req, res) => {
-    res.render('register')
+    const user = req.session.isAuth
+    user && res.redirect('/dashboard')
+    !user && res.render('register')
 })
 router.post('/register', register)
 
