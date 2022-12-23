@@ -2,8 +2,17 @@ html
   head
     title Register
   body
-    h2 Register
-      form(action = "/signup" method = "POST")
-      input(name = "name" type = "text" required placeholder = "Username")
-      input(name = "password" type = "password" required placeholder = "Password")
-      button(type = "Submit") Register
+  h2 Register
+form(method="post" action="/register")
+  table 
+    tr
+      td Username 
+      td 
+        input(type="text" name="username")
+    tr 
+      td Password 
+      td 
+        input(type="password" name="password")
+    tr 
+      td
+        input(type="submit" value="Register")

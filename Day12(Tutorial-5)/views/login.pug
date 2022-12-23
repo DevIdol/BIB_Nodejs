@@ -2,9 +2,17 @@ html
   head
     title Login
   body
-  div(class = "wrapper")
-    h2 Login
-    form(action = "/login" method = "POST")
-    input(name = "name" type = "text" required placeholder = "Username")
-    input(name = "password" type = "password" required placeholder = "Password")
-    button(type = "Submit") Log in
+h2 Login
+form(method="post" action="/login")
+  table 
+    tr
+      td Username 
+      td 
+        input(type="text" name="username")
+    tr 
+      td Password 
+      td 
+        input(type="password" name="password")
+    tr 
+      td
+        input(type="submit" value="Login")

@@ -41,14 +41,10 @@ app.set('views', './views')
 app.get('/', (req, res) => {
     req.session.isAuth = true
     console.log(req.session)
-    res.status(200).json({
-        message: "Default Route is OK"
-    })
+    res.render('index')
 })
 
-app.use('/api', userRouter)
-
-
+app.use(userRouter)
 
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))

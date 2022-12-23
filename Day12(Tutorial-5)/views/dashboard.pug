@@ -1,7 +1,12 @@
 html
-   head
-      title Dashboard
-   body
-      div Hey #{name}, How are you doing today?
-      div Want to log out?
-      div Logout
+  head
+    title Dashboard
+  body
+    div Hey, How are you doing today?
+    div Want to log out?
+form(method="post" action="/logout")
+  table 
+    tr
+      td
+        input(type="submit" value="Logout")
+        
