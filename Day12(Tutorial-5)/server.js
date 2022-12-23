@@ -2,6 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const session = require('express-session')
 const cookieParser = require('cookie-parser')
+const MongoDBSession = require('connect-mongodb-session')(session)
 const multer = require('multer')
 const dotenv = require('dotenv')
 const ConnectDB = require('./db')
@@ -12,6 +13,13 @@ const app = express();
 
 const PORT = process.env.PORT || 8080;
 
+//db
+ConnectDB();
+const store = new MongoDBSession({
+    uri: process.env.MONGODB,
+    collection: "sessions"
+})
+
 //middleware
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -20,11 +28,11 @@ app.use(cookieParser());
 app.use(session({
     secret: "Your secret key",
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    store: store
 }));
 
-//db
-ConnectDB();
+
 
 app.get('/', (req, res) => {
     req.session.isAuth = true
