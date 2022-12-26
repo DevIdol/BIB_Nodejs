@@ -7,7 +7,7 @@ const MovieSchema = new Schema({
         required: true,
     },
     year: {
-        type: String,
+        type: Number,
         trim: true,
         required: true,
     },

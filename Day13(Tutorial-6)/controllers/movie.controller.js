@@ -2,7 +2,7 @@ import Movie from "../models/movie.model.js";
 
 //create
 export const createMovie = async (req, res) => {
-    const newMovie = new Post(req.body);
+    const newMovie = new Movie(req.body);
     try {
         const savedMovie = await newMovie.save();
         res.status(201).json({
@@ -41,7 +41,6 @@ export const updateMovie = async (req, res) => {
 export const deleteMovie = async (req, res) => {
     try {
         const deletedMovie = await Movie.findByIdAndDelete(req.params.id);
-        !deletedMovie && res.status(404).json({ message: "Not Found!" });
         res.status(200).json({
             message: `Removed ${deletedMovie.name}`,
         });
@@ -72,8 +71,7 @@ export const getMovies = async (req, res) => {
 //get movie
 export const getMovie = async (req, res) => {
     try {
-        const movie = await Post.findById(req.params.id);
-        !movie && res.status(404).json({ message: "Not Found!" });
+        const movie = await Movie.findById(req.params.id);
         res.status(200).json({
             message: "Get Movie",
             data: movie,
