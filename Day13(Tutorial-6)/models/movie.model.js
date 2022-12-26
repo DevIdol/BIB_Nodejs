@@ -17,6 +17,8 @@ const MovieSchema = new Schema({
         requiredt: true
     }
 
-}, { timestamps: true })
+},
+    { timestamps: true }
+)
 
 export default model('movies', MovieSchema)
