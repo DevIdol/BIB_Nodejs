@@ -54,7 +54,7 @@ export const deleteMovie = async (req, res) => {
     }
 }
 
-//get all
+//get movies
 export const getMovies = async (req, res) => {
     try {
         const movies = await Movie.find()
