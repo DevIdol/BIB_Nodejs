@@ -5,7 +5,6 @@
 PORT = 8000
 
 MONGODB = mongodb+srv://admin:DoKFfh7mW0Hzb539@cluster0.mwutyii.mongodb.net/movies
-
 ```
 
 - **URL**
@@ -13,7 +12,6 @@ MONGODB = mongodb+srv://admin:DoKFfh7mW0Hzb539@cluster0.mwutyii.mongodb.net/movi
 localhost:8000/api/movies
 
 localhost:8000/api/movies/id
-
 ```
 
 - **Method**
