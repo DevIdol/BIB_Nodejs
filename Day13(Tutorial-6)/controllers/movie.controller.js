@@ -1,6 +1,5 @@
 import Movie from '../models/movie.model.js'
 
-
 //create
 export const createMovie = async (req, res) => {
     const newMovie = new Post(req.body)
