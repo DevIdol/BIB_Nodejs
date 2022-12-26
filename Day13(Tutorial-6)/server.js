@@ -1,6 +1,7 @@
 import express, { application } from "express";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
+import multer from "multer";
 import { connectDB } from "./db.js";
 import movieRoutes from "./routes/movie.route.js";
 
@@ -11,6 +12,7 @@ const PORT = process.env.PORT || 8080;
 //middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(multer().array())
 
 //db
 connectDB();
