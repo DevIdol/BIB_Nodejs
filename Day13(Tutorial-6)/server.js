@@ -1,6 +1,7 @@
 import express, { application } from "express";
 import dotenv from 'dotenv'
 import bodyParser from "body-parser";
+import { connectDB } from "./db.js";
 
 dotenv.config();
 
@@ -10,6 +11,9 @@ const PORT = process.env.PORT || 8080
 //middleware
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
+
+//db
+connectDB();
 
 
 //default route 
