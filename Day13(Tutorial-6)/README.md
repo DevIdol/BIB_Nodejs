@@ -1,6 +1,6 @@
 # BIB_Nodejs_Tutorial-6
 
-- **.evn file**
+- **.env file**
 ```
 PORT = 8000
 
