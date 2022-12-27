@@ -1,7 +1,8 @@
+import { errorHandler } from "../middleware/error.handler.js";
 import Movie from "../models/movie.model.js";
 
 //create
-export const createMovie = async (req, res) => {
+export const createMovie = async (req, res, next) => {
     const newMovie = new Movie(req.body);
     try {
         const savedMovie = await newMovie.save();
@@ -10,10 +11,7 @@ export const createMovie = async (req, res) => {
             data: savedMovie,
         });
     } catch (error) {
-        res.status(500).json({
-            message: "Internal Server Error!",
-            error: error,
-        });
+        next(errorHandler(500, "Something Wrong!"));
     }
 };
 
@@ -30,25 +28,19 @@ export const updateMovie = async (req, res) => {
             data: updatedMovie,
         });
     } catch (error) {
-        res.status(500).json({
-            message: "Internal Server Error!",
-            error: error,
-        });
+        next(errorHandler(500, "Something Wrong!"));
     }
 };
 
 //delete
-export const deleteMovie = async (req, res) => {
+export const deleteMovie = async (req, res, next) => {
     try {
         const deletedMovie = await Movie.findByIdAndDelete(req.params.id);
         res.status(200).json({
             message: `Removed ${deletedMovie.name}`,
         });
     } catch (error) {
-        res.status(500).json({
-            message: "Internal Server Error!",
-            error: error,
-        });
+        next(errorHandler(500, "Something Wrong!"));
     }
 };
 
@@ -61,15 +53,12 @@ export const getMovies = async (req, res) => {
             data: movies,
         });
     } catch (error) {
-        res.status(500).json({
-            message: "Internal Server Error!",
-            error: error,
-        });
+        next(errorHandler(500, "Something Wrong!"));
     }
 };
 
 //get movie
-export const getMovie = async (req, res) => {
+export const getMovie = async (req, res, next) => {
     try {
         const movie = await Movie.findById(req.params.id);
         res.status(200).json({
@@ -77,9 +66,6 @@ export const getMovie = async (req, res) => {
             data: movie,
         });
     } catch (error) {
-        res.status(500).json({
-            message: "Internal Server Error!",
-            error: error,
-        });
+        next(errorHandler(500, "Something Wrong!"));
     }
 };

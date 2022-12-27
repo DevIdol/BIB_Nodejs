@@ -27,4 +27,15 @@ app.get("/", (req, res) => {
 //routes api
 app.use("/api/movies", movieRoutes);
 
+//error handler middleware
+app.use((err, req, res, next) => {
+    const errorStatus = err.status || 500;
+    const errorMessage = err.message || "Something Wrong!";
+    return res.status(errorStatus).json({
+        success: false,
+        status: errorStatus,
+        message: errorMessage,
+    });
+});
+
 app.listen(PORT, () => console.log(`server running on port ${PORT}`));
