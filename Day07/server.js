@@ -4,7 +4,7 @@ const usersRoutes = require("./routes/userRoutes");
 const app = express();
 
 app.use(bodyParser.json());
-const port = 5000;
+const port = 6000;
 
 app.use("/api/v1/users", usersRoutes);
 

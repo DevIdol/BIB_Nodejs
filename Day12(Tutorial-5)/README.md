@@ -1,5 +1,11 @@
 # BIB_Nodejs_Tutorial-5
 
+- **.env file**
+```
+PORT = 8000
+MONGODB = "mongodb://localhost:27017/authentication"
+```
+
 - **URL**
 ```
 localhost:8000
