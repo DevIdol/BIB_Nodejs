@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 8000;
 app.use(body_parser_1.default.json());
 app.use(body_parser_1.default.urlencoded({ extended: true }));
 //route
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
     res.status(200).json({ message: "TypeScript Testing OK" });
 });
 app.listen(PORT, () => console.log(`server listening on http://localhost:${PORT}`));
