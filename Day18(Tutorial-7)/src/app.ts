@@ -10,13 +10,15 @@ import movieRouter from './routes/MovieRoute'
 
 
 dotenv.config();
-// const swaggerDocument = YAML.load('../swagger/app.yaml');
+const swaggerPath = path.join(__dirname, '../swagger/app.yaml')
+const swaggerDocument = YAML.load(swaggerPath);
 const app: Express = express();
 const PORT = process.env.PORT || 8000;
 
+
 // view engine
 app.set('view engine', 'pug')
-app.set('views',  path.join(__dirname, 'views'))
+app.set('views', path.join(__dirname, 'views'))
 app.use(express.static(path.join(__dirname, 'public')));
 
 //middleware
@@ -32,8 +34,7 @@ mongoose
 
 
 //swagger
-// app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
-
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 app.get('/', (req: Request, res: Response) => {
     res.redirect('/api/movies')
