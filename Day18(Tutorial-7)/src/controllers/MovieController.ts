@@ -5,6 +5,7 @@ import {
     getMovieService,
     updateMovieService,
     findMovieService,
+    editMovieService,
 } from "../services/MovieService";
 
 //get all
@@ -23,6 +24,16 @@ export const createMovie = async (
     next: NextFunction
 ) => {
     createMovieService(req, res, next);
+};
+
+//edit form load
+//update
+export const editMovie = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {
+    editMovieService(req, res, next);
 };
 
 //update

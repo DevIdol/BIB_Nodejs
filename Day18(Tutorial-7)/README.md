@@ -27,6 +27,7 @@ git clone git@github.com:DevIdol/BIB_Nodejs.git
 cd BIB_Nodejs
 cd "Day18(Tutorial-7)"
 yarn
+yarn watch
 yarn start
 
 open localhost:8000 in the browser

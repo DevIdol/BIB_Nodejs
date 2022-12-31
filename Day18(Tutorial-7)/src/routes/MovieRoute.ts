@@ -1,35 +1,22 @@
-import express, { Router, Request, Response, NextFunction } from "express";
-import Movie from "../models/MovieModel";
+import express, { Router, Request, Response } from "express";
 import {
     getMovies,
     createMovie,
     updateMovie,
     deleteMovie,
     findMovie,
+    editMovie,
 } from "../controllers/MovieController";
-import { createError } from "../utils/Error";
 
 const router: Router = express.Router();
 
-// new article form
+//new add from load
 router.get("/add", function (req: Request, res: Response) {
     res.render("add_movies");
 });
 
-// Edit From
-router.get(
-    "/edit/:id",
-    async (req: Request, res: Response, next: NextFunction) => {
-        try {
-            const movie = await Movie.findById(req.params.id);
-            res.render("edit_movies", {
-                movie: movie,
-            });
-        } catch (error) {
-            next(createError(500, "Something Wrong!"));
-        }
-    }
-);
+//edit form load
+router.get("/edit/:id", editMovie);
 
 router.get("/", getMovies);
 

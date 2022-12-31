@@ -36,6 +36,7 @@ mongoose
 //swagger
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
+
 app.get('/', (req: Request, res: Response) => {
     res.redirect('/api/movies')
 })
