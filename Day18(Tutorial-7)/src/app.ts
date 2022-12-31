@@ -44,4 +44,4 @@ app.use("/api/movies", movieRouter);
 //middleware errorhandler
 app.use(ErrorHandler);
 
-app.listen(PORT, () => console.log(`Server running on port${PORT}`));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

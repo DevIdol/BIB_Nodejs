@@ -64,5 +64,5 @@ app.get("/", (req, res) => {
 app.use("/api/movies", MovieRoute_1.default);
 //middleware errorhandler
 app.use(ErrorHandler_1.default);
-app.listen(PORT, () => console.log(`Server running on port${PORT}`));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 //# sourceMappingURL=app.js.map
