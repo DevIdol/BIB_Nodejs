@@ -16,7 +16,7 @@ export const getMovieService = async (
         } else {
             movieData = await Movie.find();
         }
-        let movies = movieData.slice().reverse()
+        let movies = movieData.slice().reverse();
         res.render("index", {
             title: "Movie List",
             movies,

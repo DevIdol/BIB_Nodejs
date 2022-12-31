@@ -1,5 +1,5 @@
 export interface CreateMovie {
-    title: string
-    year: number
-    rating: string
+    title: string;
+    year: number;
+    rating: string;
 }

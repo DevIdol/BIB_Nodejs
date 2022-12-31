@@ -9,10 +9,10 @@ $(document).ready(function () {
         });
     });
 
-    $(".search").on("keyup", function() {
+    $(".search").on("keyup", function () {
         var value = $(this).val().toLowerCase();
-        $(".list-group li").filter(function() {
-          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        $(".list-group li").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
-      });
+    });
 });
