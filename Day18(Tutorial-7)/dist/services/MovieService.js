@@ -8,7 +8,15 @@ const MovieModel_1 = __importDefault(require("../models/MovieModel"));
 //get movies
 const getMovieService = async (req, res, next) => {
     try {
-        const movies = await MovieModel_1.default.find();
+        const year = req.query.year;
+        let movieData;
+        if (year) {
+            movieData = await MovieModel_1.default.find({ year });
+        }
+        else {
+            movieData = await MovieModel_1.default.find();
+        }
+        let movies = movieData.slice().reverse();
         res.render("index", {
             title: "Movie List",
             movies,

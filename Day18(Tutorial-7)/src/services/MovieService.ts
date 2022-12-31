@@ -9,7 +9,14 @@ export const getMovieService = async (
     next: NextFunction
 ) => {
     try {
-        const movies = await Movie.find();
+        const year = req.query.year;
+        let movieData;
+        if (year) {
+            movieData = await Movie.find({ year });
+        } else {
+            movieData = await Movie.find();
+        }
+        let movies = movieData.slice().reverse()
         res.render("index", {
             title: "Movie List",
             movies,

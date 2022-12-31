@@ -8,4 +8,11 @@ $(document).ready(function () {
             url: '/api/movies/' + id,
         });
     });
+
+    $(".search").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $(".list-group li").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
 });
