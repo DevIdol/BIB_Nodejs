@@ -1,5 +1,7 @@
 # BIB_Nodejs_Tutorial-7
 
+Preview: https://devidol-movieapp.cyclic.app/movies
+
 - **.env file**
 ```
 PORT = 8000

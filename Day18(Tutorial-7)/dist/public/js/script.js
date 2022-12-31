@@ -1,6 +1,7 @@
 $(document).ready(function () {
     $('.delete-movie').on('click', function (e) {
         $target = $(e.target);
+        alert("Are you sure to delete?")
         const id = $target.attr('data-id');
 
         $.ajax({
