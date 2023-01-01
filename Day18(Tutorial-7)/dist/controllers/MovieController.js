@@ -13,7 +13,6 @@ const createMovie = async (req, res, next) => {
 };
 exports.createMovie = createMovie;
 //edit form load
-//update
 const editMovie = async (req, res, next) => {
     (0, MovieService_1.editMovieService)(req, res, next);
 };

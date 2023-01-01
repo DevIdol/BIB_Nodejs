@@ -1,6 +1,5 @@
 import { NextFunction, Request, Response } from "express";
 import Movie from "../models/MovieModel";
-import { createError } from "../utils/Error";
 
 //get movies
 export const getMovieService = async (
@@ -21,10 +20,6 @@ export const getMovieService = async (
             title: "Movie List",
             movies,
         });
-        // res.status(200).json({
-        //     message: "success",
-        //     data: movies,
-        // });
     } catch (error: any) {
         // next(createError(500, "Something Wrong!"));
         res.render("not_found", {
@@ -43,10 +38,6 @@ export const createMovieService = async (
         let newMovie: any = new Movie(req.body);
         await newMovie.save();
         res.redirect("/api/movies");
-        // res.status(201).json({
-        //     message: "success",
-        //     data: savedMovie,
-        // });
     } catch (error: any) {
         // next(createError(500, "Something Wrong!"));
         res.render("not_found", {
@@ -55,7 +46,7 @@ export const createMovieService = async (
     }
 };
 
-//Edit From Load
+//edit form load
 export const editMovieService = async (
     req: Request,
     res: Response,
@@ -87,10 +78,6 @@ export const updateMovieService = async (
             { new: true }
         );
         res.redirect("/api/movies");
-        // res.status(200).json({
-        //     message: "success",
-        //     data: updateMovie,
-        // });
     } catch (error: any) {
         // next(createError(500, "Something Wrong!"));
         res.render("not_found", {
@@ -108,10 +95,6 @@ export const deleteMovieService = async (
     try {
         await Movie.findByIdAndDelete(req.params.id);
         res.redirect("/api/movies");
-        // res.status(200).json({
-        //     message: "success",
-        //     data: `${deleteMovie.name} Removed`,
-        // });
     } catch (error: any) {
         // next(createError(500, "Something Wrong!"));
         res.render("not_found", {
@@ -131,10 +114,6 @@ export const findMovieService = async (
         res.render("movies", {
             movie: movie,
         });
-        // res.status(200).json({
-        //     message: "success",
-        //     data: movie,
-        // });
     } catch (error: any) {
         // next(createError(500, "Something Wrong!"));
         res.render("not_found", {

@@ -21,10 +21,6 @@ const getMovieService = async (req, res, next) => {
             title: "Movie List",
             movies,
         });
-        // res.status(200).json({
-        //     message: "success",
-        //     data: movies,
-        // });
     }
     catch (error) {
         // next(createError(500, "Something Wrong!"));
@@ -40,10 +36,6 @@ const createMovieService = async (req, res, next) => {
         let newMovie = new MovieModel_1.default(req.body);
         await newMovie.save();
         res.redirect("/api/movies");
-        // res.status(201).json({
-        //     message: "success",
-        //     data: savedMovie,
-        // });
     }
     catch (error) {
         // next(createError(500, "Something Wrong!"));
@@ -53,7 +45,7 @@ const createMovieService = async (req, res, next) => {
     }
 };
 exports.createMovieService = createMovieService;
-//Edit From Load
+//edit form load
 const editMovieService = async (req, res, next) => {
     try {
         const movie = await MovieModel_1.default.findById(req.params.id);
@@ -74,10 +66,6 @@ const updateMovieService = async (req, res, next) => {
     try {
         await MovieModel_1.default.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true });
         res.redirect("/api/movies");
-        // res.status(200).json({
-        //     message: "success",
-        //     data: updateMovie,
-        // });
     }
     catch (error) {
         // next(createError(500, "Something Wrong!"));
@@ -92,10 +80,6 @@ const deleteMovieService = async (req, res, next) => {
     try {
         await MovieModel_1.default.findByIdAndDelete(req.params.id);
         res.redirect("/api/movies");
-        // res.status(200).json({
-        //     message: "success",
-        //     data: `${deleteMovie.name} Removed`,
-        // });
     }
     catch (error) {
         // next(createError(500, "Something Wrong!"));
@@ -112,10 +96,6 @@ const findMovieService = async (req, res, next) => {
         res.render("movies", {
             movie: movie,
         });
-        // res.status(200).json({
-        //     message: "success",
-        //     data: movie,
-        // });
     }
     catch (error) {
         // next(createError(500, "Something Wrong!"));

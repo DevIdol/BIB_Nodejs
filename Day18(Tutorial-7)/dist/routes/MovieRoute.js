@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const MovieController_1 = require("../controllers/MovieController");
 const router = express_1.default.Router();
-//new add from load
+//new create form load
 router.get("/add", function (req, res) {
     res.render("add_movies");
 });

@@ -27,7 +27,6 @@ export const createMovie = async (
 };
 
 //edit form load
-//update
 export const editMovie = async (
     req: Request,
     res: Response,

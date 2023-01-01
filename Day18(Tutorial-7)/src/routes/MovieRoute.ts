@@ -10,7 +10,7 @@ import {
 
 const router: Router = express.Router();
 
-//new add from load
+//new create form load
 router.get("/add", function (req: Request, res: Response) {
     res.render("add_movies");
 });
