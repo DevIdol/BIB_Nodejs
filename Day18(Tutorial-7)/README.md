@@ -6,11 +6,13 @@ Preview: https://devidol-movieapp.cyclic.app/movies
 ```
 PORT = 8000
 
-MONGODB = mongodb+srv://admin:DoKFfh7mW0Hzb539@cluster0.mwutyii.mongodb.net/movies
+MONGODB = mongodb://localhost:27017/movies
 ```
 
 - **URL**
 ```
+localhost:8000/api-docs
+
 localhost:8000/api/movies
 ```
 
