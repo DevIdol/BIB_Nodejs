@@ -1,28 +1,19 @@
-import express, { Router, Request, Response } from "express";
+import express, { Router } from "express";
 import {
-    getMovies,
-    createMovie,
-    updateMovie,
-    deleteMovie,
-    findMovie,
-    editMovie,
+  getMovies,
+  createMovie,
+  updateMovie,
+  deleteMovie,
+  findMovie,
 } from "../controllers/MovieController";
 
 const router: Router = express.Router();
-
-//new create form load
-router.get("/add", function (req: Request, res: Response) {
-    res.render("add_movies");
-});
-
-//edit form load
-router.get("/edit/:id", editMovie);
 
 router.get("/", getMovies);
 
 router.post("/", createMovie);
 
-router.post("/:id", updateMovie);
+router.put("/:id", updateMovie);
 
 router.delete("/:id", deleteMovie);
 
