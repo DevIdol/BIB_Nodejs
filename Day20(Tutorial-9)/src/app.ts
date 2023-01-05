@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import authRoute from "./routes/AuthRoute";
 import secureRoute from "./routes/SecureRoute";
+import passResetRoute from "./routes/PassResetRoute";
 import "./config/Passport";
 import { ErrorHandle } from "./middleware/ErrorHandle";
 
@@ -30,6 +31,7 @@ app.use(
   passport.authenticate("jwt", { session: false }),
   secureRoute
 );
+app.use("/api/password-reset", passResetRoute);
 
 // error handler
 app.use(ErrorHandle);

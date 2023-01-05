@@ -3,6 +3,7 @@ import passportJWT from "passport-jwt";
 import passportLocal from "passport-local";
 import dotenv from "dotenv";
 import User from "../models/User";
+import { createError } from "../util/CreateError";
 
 dotenv.config();
 const localStrategy = passportLocal.Strategy;
@@ -25,8 +26,8 @@ passport.use(
         });
 
         return done(null, user);
-      } catch (error) {
-        done(error);
+      } catch (error: any) {
+        done(createError(500, "Internal Server Error"));
       }
     }
   )
@@ -45,16 +46,16 @@ passport.use(
         const user: any = await User.findOne({ email });
 
         if (!user) {
-          return done(null, false, { message: "User not found" });
+          return done(null, false, createError(404, "User Not Found!"));
         }
         const validate = await user.isValidPassword(password);
         if (!validate) {
-          return done(null, false, { message: "Wrong Password" });
+          return done(null, false, createError(400, "Invalid Password"));
         }
 
         return done(null, user, { message: "Logged in Successfully" });
-      } catch (error) {
-        return done(error);
+      } catch (error: any) {
+        done(createError(500, error));
       }
     }
   )
@@ -69,8 +70,8 @@ passport.use(
     async (token, done) => {
       try {
         return done(null, token.user);
-      } catch (error) {
-        done(error);
+      } catch (error: any) {
+        done(createError(500, error));
       }
     }
   )
