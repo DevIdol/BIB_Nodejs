@@ -1,6 +1,4 @@
 import { NextFunction, Request, Response } from "express";
-import jwt from "jsonwebtoken";
-import passport from "passport";
 import dotenv from "dotenv";
 import { loginService } from "../services/AuthService";
 dotenv.config();

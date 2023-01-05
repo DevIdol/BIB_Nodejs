@@ -3,7 +3,7 @@ import Token from "../models/Token";
 import User from "../models/User";
 import crypto from "crypto";
 import { SendMail } from "../util/SendMail";
-
+import { createError } from "../util/CreateError";
 
 //Forgot Password
 export const forgotPasswordService = async (
@@ -13,8 +13,7 @@ export const forgotPasswordService = async (
 ) => {
   try {
     const user: any = await User.findOne({ email: req.body.email });
-    !user && new Error("Email not Found!");
-
+    if (!user) return next(createError(404, "User Not Found!"));
     let token = await Token.findOne({
       userId: user._id,
     });
@@ -26,9 +25,9 @@ export const forgotPasswordService = async (
     }
     const url = `${process.env.BASE_URL}/password-reset/${user._id}/${token.token}`;
     await SendMail(user.email, "Password Reset", url);
-    res.status(200).send({ message: "Password reset link sent successfully!" });
+    res.status(200).json({ message: "Password reset link sent successfully!" });
   } catch (error) {
-    next(error);
+    next(createError(500, "Internal Server Error!"));
   }
 };
 
@@ -40,17 +39,17 @@ export const passwordVerifyURLService = async (
 ) => {
   try {
     const user: any = await User.findOne({ _id: req.params.id });
-    !user && new Error("Email not Found!");
+    if (!user) return next(createError(404, "User Not Found!"));
 
     const token = await Token.findOne({
       userId: user._id,
       token: req.params.token,
     });
-    !token && new Error("Token not Found!");
+    if (!token) return next(createError(404, "User Not Found!"));
 
-    res.status(200).send({ message: "Valid URL" });
+    res.status(200).json({ message: "Valid URL" });
   } catch (error) {
-    next(error);
+    next(createError(500, "Internal Server Error!"));
   }
 };
 
@@ -62,12 +61,12 @@ export const resetPasswordService = async (
 ) => {
   try {
     const user: any = await User.findOne({ _id: req.params.id });
-    !user && new Error("Email not Found!");
+    if (!user) return next(createError(404, "Email Not Found!"));
     const token: any = await Token.findOne({
       userId: user._id,
       token: req.params.token,
     });
-    !token && new Error("Invalid Token!");
+    if (!token) return next(createError(404, "Token Not Found!"));
 
     user.password = req.body.password;
     await user.save();
@@ -75,6 +74,6 @@ export const resetPasswordService = async (
 
     res.status(200).json({ message: "password reset successfully" });
   } catch (error) {
-    next(error);
+    next(createError(500, "Internal Server Error!"));
   }
 };
